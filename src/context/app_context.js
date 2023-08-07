@@ -1,23 +1,26 @@
-import React, { createContext, useState } from "react";
+import { useState, createContext } from "react";
+import employeeList from "../model/employeeList";
 
- const AppContext = createContext();
+export const AppContext = createContext();
 
+function AppContextProvider(props){
+    const [person, setPerson] = useState(employeeList[0]); // current employee
+    const [employees, setEmployees] = useState(employeeList); // all employees
 
-  const AppContextProvider = (props) => {
-    //this will map through our data and load each employee
-  const [employee, setEmployee] = useState(null);
-  //this will load the employee/"worker" that's selected through the searchbar
-  const [worker, setWorker] = useState(null)
+    console.log(employeeList)
+
+    // return
     return (
-        <AppContext.Provider value={{
-            employee,
-            setEmployee,
-            worker,
-            setWorker
+    <AppContext.Provider
+        value={{
+        // props??
+        person, setPerson,
+        employees, setEmployees
         }}>
-            {props.children}
-        </AppContext.Provider>
+        {/* props */}
+        {props.children}
+    </AppContext.Provider>
     )
-  }
+}
 
-  export default AppContextProvider
+export default AppContextProvider;

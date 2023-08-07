@@ -2,8 +2,8 @@ import React from 'react'
 
 function Header() {
   return (
-    <div className='header'>
-      <h3>This is my Header Component</h3>
+    <div id='header'>
+      <p>Employee</p>
     </div>
   )
 }
